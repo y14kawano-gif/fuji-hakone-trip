@@ -47,9 +47,6 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
 /* v2: スマホ向け・ナビ導線強化 */
 .day-tabs{position:sticky;top:0;z-index:20;background:#fff;padding:10px 16px;border-bottom:1px solid #ddd}
 .day-tabs button{min-width:72px}
-.navlinks{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.navbtn{display:inline-block;padding:7px 10px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:700;background:#fff;border:1px solid #9db7cc;color:#244b70}
-.navbtn.primary{background:#244b70;color:#fff;border-color:#244b70}
 .stopbox{display:flex;flex-direction:column;gap:5px}
 .route{align-items:flex-start}
 @media(max-width:700px){
@@ -79,12 +76,60 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
   .card{box-shadow:none;border:1px solid #ddd}
 }
 
+
+/* v3: 旅程・タイムスケジュール統合 */
+.timeline-card h2{font-size:19px}
+.timeline-wrap{padding:0 16px 18px}
+.timeline-day{padding:0 0 18px}
+.timeline-day+.timeline-day{border-top:1px solid #e2e2e2;padding-top:8px}
+.day-summary{font-size:13px;color:#666;margin:0 0 10px;padding-left:2px}
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:88px;top:9px;bottom:9px;width:2px;background:#d9e3eb}
+.timeline-row{display:grid;grid-template-columns:76px 24px 1fr;gap:0;position:relative;min-height:66px}
+.time{font-weight:700;font-size:13px;text-align:right;padding:13px 10px 10px 0;color:#244b70;white-space:nowrap}
+.timeline-dot{width:11px;height:11px;border-radius:50%;background:#244b70;margin:16px auto 0;z-index:2;border:2px solid #fff;box-shadow:0 0 0 1px #244b70}
+.timeline-content{padding:8px 0 10px 10px}
+.spot-head{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.spot-name{font-weight:700;color:#16334b;text-decoration:none;font-size:16px}
+.spot-name:hover{text-decoration:underline}
+.kind{font-size:11px;padding:3px 6px;border-radius:5px;background:#e8f5e9}
+.timeline-row.optional .kind{background:#fff3df}
+.timeline-row.stay .kind{background:#e7f1fa}
+.timeline-row.goal .kind{background:#e7f1fa}
+.actions{display:inline-flex;align-items:center;gap:3px;margin-left:auto}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #c7d8e7;border-radius:7px;background:#fff;text-decoration:none;font-size:17px;line-height:1}
+.iconbtn:hover{background:#e7f1fa}
+.iconbtn.nav{background:#244b70;border-color:#244b70}
+.official-link{font-size:11px;color:#244b70;text-decoration:none;margin-left:3px}
+.details{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#666;margin-top:4px}
+.memo.warn,.warn{color:#b33;font-weight:700}
+.timeline-row.optional .timeline-dot{background:#c69b45;box-shadow:0 0 0 1px #c69b45}
+.timeline-row.stay .timeline-dot,.timeline-row.goal .timeline-dot{background:#6a8ca8;box-shadow:0 0 0 1px #6a8ca8}
+@media(max-width:700px){
+  .timeline-wrap{padding:0 10px 14px}
+  .timeline:before{left:63px}
+  .timeline-row{grid-template-columns:51px 24px 1fr}
+  .time{font-size:12px;padding-right:7px;white-space:normal}
+  .timeline-content{padding-left:8px}
+  .spot-name{font-size:15px}
+  .actions{margin-left:0}
+  .details{display:block;line-height:1.7}
+  .details span{display:block}
+  .memo{margin-top:2px}
+  .iconbtn{width:32px;height:32px}
+}
+@media print{
+  .timeline-wrap{padding:0}
+  .timeline-row{break-inside:avoid}
+  .iconbtn,.official-link{display:none}
+}
+
 </style>
 </head>
 <body>
 <div class="container">
 <header>
-<h1>富士・箱根 2泊3日｜左回り・旅程ページ v2</h1>
+<h1>富士・箱根 2泊3日｜左回り・旅程ページ v3</h1>
 <p>名古屋駅 12:00発 → 箱根泊 → 河口湖泊 → 3日目 15:00～16:00 静岡駅</p>
 </header>
 
@@ -109,110 +154,46 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
 </p>
 </section>
 
-<section class="card">
-<h2>🚗 旅程の流れ</h2>
-
-<div class="day">
+<section class="card timeline-card">
+<h2>🕐 旅程・タイムスケジュール</h2>
+<div class="timeline-wrap">
+<div class="day timeline-day" id="day1">
 <div class="daytitle">1日目｜箱根・芦ノ湖 <span class="badge">必須</span></div>
-<div class="route">
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=名古屋駅" target="_blank" rel="noopener">名古屋駅 12:00</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=名古屋駅" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=名古屋駅&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=芦ノ湖" target="_blank" rel="noopener">芦ノ湖</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=芦ノ湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=芦ノ湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=箱根スカイライン" target="_blank" rel="noopener">箱根スカイライン</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=箱根スカイライン" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=箱根スカイライン&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=芦ノ湖スカイライン" target="_blank" rel="noopener">芦ノ湖スカイライン</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=芦ノ湖スカイライン" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=芦ノ湖スカイライン&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=大観山展望台" target="_blank" rel="noopener">大観山</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=大観山展望台" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=大観山展望台&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=箱根" target="_blank" rel="noopener">箱根泊</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=箱根" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=箱根&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-</div>
-
-<div class="day">
+<div class="day-summary">名古屋 → 芦ノ湖 → 箱根スカイライン → 大観山 → 箱根泊</div>
+<div class="timeline">
+<div class="timeline-row standard"><div class="time">12:00</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener">名古屋駅</a><span class="kind">出発</span><span class="actions" aria-label="名古屋駅の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=名古屋駅,愛知県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">高速道路中心</span></div></div></div>
+<div class="timeline-row must"><div class="time">15:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=芦ノ湖" target="_blank" rel="noopener">芦ノ湖</a><span class="kind">必須</span><span class="actions" aria-label="芦ノ湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=芦ノ湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=芦ノ湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30～40分</span><span class="memo">湖畔・休憩</span></div></div></div>
+<div class="timeline-row must"><div class="time">16:00頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根スカイライン" target="_blank" rel="noopener">箱根スカイライン／芦ノ湖スカイライン</a><span class="kind">必須</span><span class="actions" aria-label="箱根スカイライン／芦ノ湖スカイラインの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根スカイライン" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根スカイライン&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30～60分</span><span class="memo">11月中旬は日没に注意</span></div></div></div>
+<div class="timeline-row must"><div class="time">16:45頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=大観山展望台" target="_blank" rel="noopener">大観山展望台</a><span class="kind">必須</span><span class="actions" aria-label="大観山展望台の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=大観山展望台" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=大観山展望台&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">富士山＋芦ノ湖</span></div></div></div>
+<div class="timeline-row stay"><div class="time">17:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener">箱根の宿</a><span class="kind">宿泊</span><span class="actions" aria-label="箱根の宿の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根,神奈川県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：宿泊</span><span class="memo">夕食・温泉</span></div></div></div>
+</div></div>
+<div class="day timeline-day" id="day2">
 <div class="daytitle">2日目｜山中湖・五合目・河口湖</div>
-<div class="route">
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=箱根" target="_blank" rel="noopener">箱根</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=箱根" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=箱根&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=山中湖" target="_blank" rel="noopener">山中湖</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=山中湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=山中湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop optional" href="https://www.google.com/maps/search/?api=1&query=富士スピードウェイ" target="_blank" rel="noopener">富士SW</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=富士スピードウェイ" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=富士スピードウェイ&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=富士スバルライン五合目" target="_blank" rel="noopener">富士スバルライン五合目</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=富士スバルライン五合目" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=富士スバルライン五合目&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">河口湖</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=河口湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=河口湖遊覧船" target="_blank" rel="noopener">遊覧船「天晴」</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=河口湖遊覧船" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=河口湖遊覧船&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">河口湖泊</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=河口湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-</div>
-
-<div class="day">
+<div class="day-summary">箱根 → 山中湖 → 富士SW（任意）→ 五合目 → 河口湖 → 遊覧船 → 河口湖泊</div>
+<div class="timeline">
+<div class="timeline-row standard"><div class="time">08:00</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener">箱根出発</a><span class="kind">移動</span><span class="actions" aria-label="箱根出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根,神奈川県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">山中湖方面へ</span></div></div></div>
+<div class="timeline-row must"><div class="time">09:15頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=山中湖" target="_blank" rel="noopener">山中湖</a><span class="kind">必須</span><span class="actions" aria-label="山中湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=山中湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=山中湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">富士山＋湖</span></div></div></div>
+<div class="timeline-row optional"><div class="time">10:15頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富士スピードウェイ" target="_blank" rel="noopener">富士スピードウェイ</a><span class="kind">寄れたら</span><span class="actions" aria-label="富士スピードウェイの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富士スピードウェイ" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富士スピードウェイ&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.fsw.tv/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：～30分</span><span class="memo">時間調整枠。押したらカット</span></div></div></div>
+<div class="timeline-row must"><div class="time">12:00～13:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富士スバルライン五合目" target="_blank" rel="noopener">富士スバルライン五合目</a><span class="kind">必須</span><span class="actions" aria-label="富士スバルライン五合目の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富士スバルライン五合目" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富士スバルライン五合目&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://fujiyama5.jp/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約1.5時間</span><span class="memo">11月中旬は積雪・凍結等を要確認</span></div></div></div>
+<div class="timeline-row must"><div class="time">14:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖" target="_blank" rel="noopener">河口湖</a><span class="kind">必須</span><span class="actions" aria-label="河口湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：～1時間</span><span class="memo">昼食・湖畔・休憩</span></div></div></div>
+<div class="timeline-row must"><div class="time">15:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖遊覧船" target="_blank" rel="noopener">河口湖遊覧船「天晴」</a><span class="kind">必須</span><span class="actions" aria-label="河口湖遊覧船「天晴」の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖遊覧船" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖遊覧船&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.fujigokokisen.jp/contents/sp/appare/price.php" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約20分</span><span class="memo">運航状況を当日確認</span></div></div></div>
+<div class="timeline-row stay"><div class="time">17:00頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener">河口湖の宿</a><span class="kind">宿泊</span><span class="actions" aria-label="河口湖の宿の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖,山梨県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：宿泊</span><span class="memo"></span></div></div></div>
+</div></div>
+<div class="day timeline-day" id="day3">
 <div class="daytitle">3日目｜青木ヶ原・朝霧・富士山西麓 <span class="badge">必須</span></div>
-<div class="route">
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">河口湖</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=河口湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=河口湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener">富岳風穴・鳴沢氷穴</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=富岳風穴・鳴沢氷穴&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=青木ヶ原樹海" target="_blank" rel="noopener">青木ヶ原樹海ドライブ</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=青木ヶ原樹海" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=青木ヶ原樹海&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=朝霧高原" target="_blank" rel="noopener">朝霧高原</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=朝霧高原" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=朝霧高原&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=田貫湖" target="_blank" rel="noopener">田貫湖</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=田貫湖" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=田貫湖&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=白糸の滝 静岡県富士宮市" target="_blank" rel="noopener">白糸の滝</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=白糸の滝 静岡県富士宮市" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=白糸の滝 静岡県富士宮市&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop must" href="https://www.google.com/maps/search/?api=1&query=大淵笹場" target="_blank" rel="noopener">大淵笹場</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=大淵笹場" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=大淵笹場&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-<span class="arrow">→</span>
-<div class="stopbox"><a class="stop" href="https://www.google.com/maps/search/?api=1&query=静岡駅" target="_blank" rel="noopener">静岡駅 15:00～16:00</a><div class="navlinks"><a class="navbtn" href="https://www.google.com/maps/search/?api=1&query=静岡駅" target="_blank" rel="noopener">📍 地図を見る</a><a class="navbtn primary" href="https://www.google.com/maps/dir/?api=1&destination=静岡駅&travelmode=driving" target="_blank" rel="noopener">🚗 ナビ開始</a></div></div>
-</div>
-</section>
-
-<section class="card">
-<h2>🕐 詳細タイムスケジュール（試案）</h2>
-<div class="tablewrap">
-<table>
-<thead><tr><th>日</th><th>時刻</th><th>場所</th><th>滞在</th><th>区分</th><th>メモ</th></tr></thead>
-<tbody>
-<tr class="day1"><td>1日目</td><td>12:00</td><td>名古屋駅</td><td>—</td><td>出発</td><td>高速道路中心</td></tr>
-<tr class="day1"><td>1日目</td><td>15:30頃</td><td>芦ノ湖</td><td>30～40分</td><td class="mustcell">必須</td><td>湖畔・休憩</td></tr>
-<tr class="day1"><td>1日目</td><td>16:00頃</td><td>箱根スカイライン／芦ノ湖スカイライン</td><td>30～60分</td><td class="mustcell">必須</td><td>11月中旬は日没に注意</td></tr>
-<tr class="day1"><td>1日目</td><td>16:45頃</td><td>大観山展望台</td><td>30分</td><td class="mustcell">必須</td><td>富士山＋芦ノ湖</td></tr>
-<tr class="day1"><td>1日目</td><td>17:30頃</td><td>箱根の宿</td><td>宿泊</td><td>宿泊</td><td>夕食・温泉</td></tr>
-
-<tr class="day2"><td>2日目</td><td>08:00</td><td>箱根出発</td><td>—</td><td>移動</td><td>山中湖方面へ</td></tr>
-<tr class="day2"><td>2日目</td><td>09:15頃</td><td>山中湖</td><td>30分</td><td class="mustcell">必須</td><td>富士山＋湖</td></tr>
-<tr class="day2"><td>2日目</td><td>10:15頃</td><td>富士スピードウェイ</td><td>～30分</td><td>寄れたら</td><td>時間調整枠。押したらカット</td></tr>
-<tr class="day2"><td>2日目</td><td>12:00～13:30</td><td>富士スバルライン五合目</td><td>約1.5時間</td><td class="mustcell">必須</td><td class="warn">11月中旬は積雪・凍結等を要確認</td></tr>
-<tr class="day2"><td>2日目</td><td>14:30頃</td><td>河口湖</td><td>～1時間</td><td class="mustcell">必須</td><td>昼食・湖畔・休憩</td></tr>
-<tr class="day2"><td>2日目</td><td>15:30頃</td><td>河口湖遊覧船「天晴」</td><td>約20分</td><td class="mustcell">必須</td><td>運航状況を当日確認</td></tr>
-<tr class="day2"><td>2日目</td><td>17:00頃</td><td>河口湖の宿</td><td>宿泊</td><td>宿泊</td><td></td></tr>
-
-<tr class="day3"><td>3日目</td><td>07:30</td><td>河口湖出発</td><td>—</td><td>移動</td><td>静岡駅15～16時を優先</td></tr>
-<tr class="day3"><td>3日目</td><td>08:00～09:30</td><td>富岳風穴・鳴沢氷穴</td><td>約1.5時間</td><td class="mustcell">必須</td><td>洞内は階段あり</td></tr>
-<tr class="day3"><td>3日目</td><td>09:30～10:15</td><td>青木ヶ原樹海ドライブ</td><td>～45分</td><td>ルート</td><td>公道から樹海を楽しむ</td></tr>
-<tr class="day3"><td>3日目</td><td>10:15～10:45</td><td>朝霧高原</td><td>30分</td><td class="mustcell">必須</td><td>景色＋休憩</td></tr>
-<tr class="day3"><td>3日目</td><td>11:00～11:45</td><td>田貫湖</td><td>45分</td><td class="mustcell">必須</td><td>長距離歩行はしない</td></tr>
-<tr class="day3"><td>3日目</td><td>12:15～13:15</td><td>白糸の滝</td><td>約1時間</td><td class="mustcell">必須</td><td>滝壺方面は無理しない</td></tr>
-<tr class="day3"><td>3日目</td><td>13:45～14:15</td><td>大淵笹場</td><td>30分</td><td class="mustcell">必須</td><td>茶畑＋富士山</td></tr>
-<tr class="day3"><td>3日目</td><td>15:15～15:45</td><td>静岡駅</td><td>—</td><td>ゴール</td><td class="warn">16:00までに到着</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-
-<section class="card">
-<h2>🔗 スポットリンク</h2>
-<div class="links">
-<div class="linkcard"><b>富士スバルライン五合目</b><a href="https://fujiyama5.jp/" target="_blank">公式</a><a href="https://www.google.com/maps/search/?api=1&query=富士スバルライン五合目" target="_blank">地図</a></div>
-<div class="linkcard"><b>河口湖遊覧船「天晴」</b><a href="https://www.fujigokokisen.jp/contents/sp/appare/price.php" target="_blank">公式</a><a href="https://www.google.com/maps/search/?api=1&query=河口湖遊覧船" target="_blank">地図</a></div>
-<div class="linkcard"><b>富岳風穴・鳴沢氷穴</b><a href="https://www.mtfuji-cave.com/" target="_blank">公式</a><a href="https://www.google.com/maps/search/?api=1&query=富岳風穴" target="_blank">地図</a></div>
-<div class="linkcard"><b>大淵笹場</b><a href="https://www.city.fuji.shizuoka.jp/1005330000/miryoku/p008190.html" target="_blank">公式情報</a><a href="https://www.google.com/maps/search/?api=1&query=大淵笹場" target="_blank">地図</a></div>
-<div class="linkcard"><b>富士スピードウェイ</b><a href="https://www.fsw.tv/" target="_blank">公式</a><a href="https://www.google.com/maps/search/?api=1&query=富士スピードウェイ" target="_blank">地図</a></div>
-<div class="linkcard"><b>芦ノ湖スカイライン</b><a href="https://www.ashinoko-skyline.co.jp/" target="_blank">公式</a><a href="https://www.google.com/maps/search/?api=1&query=芦ノ湖スカイライン" target="_blank">地図</a></div>
-</div>
-</section>
-
-<footer>※このページは旅程の試作版 v2 です。所要時間・営業時間・道路状況は旅行日確定後に再確認します。</footer>
+<div class="day-summary">河口湖 → 風穴・氷穴 → 青木ヶ原 → 朝霧 → 田貫湖 → 白糸の滝 → 大淵笹場 → 静岡駅</div>
+<div class="timeline">
+<div class="timeline-row standard"><div class="time">07:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener">河口湖出発</a><span class="kind">移動</span><span class="actions" aria-label="河口湖出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖,山梨県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">静岡駅15～16時を優先</span></div></div></div>
+<div class="timeline-row must"><div class="time">08:00～09:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener">富岳風穴・鳴沢氷穴</a><span class="kind">必須</span><span class="actions" aria-label="富岳風穴・鳴沢氷穴の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富岳風穴・鳴沢氷穴&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.mtfuji-cave.com/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約1.5時間</span><span class="memo">洞内は階段あり</span></div></div></div>
+<div class="timeline-row standard"><div class="time">09:30～10:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=青木ヶ原樹海" target="_blank" rel="noopener">青木ヶ原樹海ドライブ</a><span class="kind">ルート</span><span class="actions" aria-label="青木ヶ原樹海ドライブの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=青木ヶ原樹海" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=青木ヶ原樹海&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：～45分</span><span class="memo">公道から樹海を楽しむ</span></div></div></div>
+<div class="timeline-row must"><div class="time">10:15～10:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=朝霧高原" target="_blank" rel="noopener">朝霧高原</a><span class="kind">必須</span><span class="actions" aria-label="朝霧高原の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=朝霧高原" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=朝霧高原&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">景色＋休憩</span></div></div></div>
+<div class="timeline-row must"><div class="time">11:00～11:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=田貫湖" target="_blank" rel="noopener">田貫湖</a><span class="kind">必須</span><span class="actions" aria-label="田貫湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=田貫湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=田貫湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：45分</span><span class="memo">長距離歩行はしない</span></div></div></div>
+<div class="timeline-row must"><div class="time">12:15～13:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=白糸の滝+静岡県富士宮市" target="_blank" rel="noopener">白糸の滝</a><span class="kind">必須</span><span class="actions" aria-label="白糸の滝の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=白糸の滝+静岡県富士宮市" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=白糸の滝+静岡県富士宮市&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：約1時間</span><span class="memo">滝壺方面は無理しない</span></div></div></div>
+<div class="timeline-row must"><div class="time">13:45～14:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=大淵笹場" target="_blank" rel="noopener">大淵笹場</a><span class="kind">必須</span><span class="actions" aria-label="大淵笹場の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=大淵笹場" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=大淵笹場&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.city.fuji.shizuoka.jp/1005330000/miryoku/p008190.html" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">茶畑＋富士山</span></div></div></div>
+<div class="timeline-row goal"><div class="time">15:15～15:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=静岡駅,静岡県" target="_blank" rel="noopener">静岡駅</a><span class="kind">ゴール</span><span class="actions" aria-label="静岡駅の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=静岡駅,静岡県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=静岡駅,静岡県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">16:00までに到着</span></div></div></div>
+</div></div>
+</div></section>
+<footer>※このページは旅程ページ v3 です。所要時間・営業時間・道路状況は旅行日確定後に再確認します。</footer>
 </div>
 
 <script>
