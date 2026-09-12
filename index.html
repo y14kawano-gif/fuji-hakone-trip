@@ -65,11 +65,11 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
     width="100%" height="100%" style="border:0"
     loading="lazy" allowfullscreen
     referrerpolicy="strict-origin-when-cross-origin"
-    src="https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=名古屋駅,愛知県&destination=静岡駅,静岡県&waypoints=芦ノ湖,箱根スカイライン,大観山展望台,山中湖,富士スバルライン五合目,河口湖,白糸の滝&language=ja">
+    src=`https://www.google.com/maps/embed/v1/directions?key=${API_KEY}&origin=名古屋駅,愛知県&destination=静岡駅,静岡県&waypoints=芦ノ湖,箱根スカイライン,大観山展望台,山中湖,富士スバルライン五合目,河口湖,白糸の滝&language=ja`>
   </iframe>
 </div>
 <p class="small" style="padding:10px 16px 14px;margin:0">
-※この版はGoogle Maps Embed APIを使用します。下記の <b>YOUR_API_KEY</b> をご自身のGoogle Maps APIキーに置き換えてください。
+※この版はGoogle Maps Embed APIを使用します。下記の <b>${API_KEY}</b> をご自身のGoogle Maps APIキーに置き換えてください。
 </p>
 </section>
 
@@ -166,11 +166,13 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+const API_KEY = "AIzaSyCzEpVu0fm7bfiqWfjebXaxznEvEp2_bQM";
+
 const routes = {
-  0: "https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=名古屋駅,愛知県&destination=静岡駅,静岡県&waypoints=芦ノ湖,箱根スカイライン,大観山展望台,山中湖,富士スバルライン五合目,河口湖,富岳風穴,鳴沢氷穴,白糸の滝,大淵笹場&language=ja",
-  1: "https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=名古屋駅,愛知県&destination=箱根,神奈川県&waypoints=芦ノ湖,箱根スカイライン,芦ノ湖スカイライン,大観山展望台&language=ja",
-  2: "https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=箱根,神奈川県&destination=河口湖,山梨県&waypoints=山中湖,富士スピードウェイ,富士スバルライン五合目&language=ja",
-  3: "https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=河口湖,山梨県&destination=静岡駅,静岡県&waypoints=富岳風穴,鳴沢氷穴,青木ヶ原樹海,朝霧高原,田貫湖,白糸の滝,大淵笹場&language=ja"
+  0: `https://www.google.com/maps/embed/v1/directions?key=${API_KEY}&origin=名古屋駅,愛知県&destination=静岡駅,静岡県&waypoints=芦ノ湖,箱根スカイライン,大観山展望台,山中湖,富士スバルライン五合目,河口湖,富岳風穴,鳴沢氷穴,白糸の滝,大淵笹場&language=ja`,
+  1: `https://www.google.com/maps/embed/v1/directions?key=${API_KEY}&origin=名古屋駅,愛知県&destination=箱根,神奈川県&waypoints=芦ノ湖,箱根スカイライン,芦ノ湖スカイライン,大観山展望台&language=ja`,
+  2: `https://www.google.com/maps/embed/v1/directions?key=${API_KEY}&origin=箱根,神奈川県&destination=河口湖,山梨県&waypoints=山中湖,富士スピードウェイ,富士スバルライン五合目&language=ja`,
+  3: `https://www.google.com/maps/embed/v1/directions?key=${API_KEY}&origin=河口湖,山梨県&destination=静岡駅,静岡県&waypoints=富岳風穴,鳴沢氷穴,青木ヶ原樹海,朝霧高原,田貫湖,白糸の滝,大淵笹場&language=ja`
 };
 function showDay(day){
   document.getElementById("gmap").src = routes[day];
