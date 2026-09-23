@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>富士・箱根 2泊3日｜試作旅程ページ</title>
+<title>富士・箱根 2泊3日｜旅程ページ</title>
 <style>
 :root{--navy:#244b70;--blue:#e7f1fa;--green:#e8f5e9;--orange:#fff3df;--red:#d9534f;--text:#222;--muted:#666}
 *{box-sizing:border-box}
@@ -161,13 +161,55 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
 .live-mode .schedule-summary{display:flex}
 .delay-controls button.active-delay{background:#fff0d6;border-color:#d5a354}
 
+
+/* ヘッダー写真 */
+.hero-header{
+  position:relative;
+  min-height:230px;
+  display:flex;
+  align-items:flex-end;
+  padding:0;
+  overflow:hidden;
+  border-radius:16px;
+  margin-bottom:16px;
+  background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/View_of_Mount_Fuji_from_Onshi_Hakone_Park.jpg/1280px-View_of_Mount_Fuji_from_Onshi_Hakone_Park.jpg");
+  background-size:cover;
+  background-position:center 48%;
+  box-shadow:0 2px 10px #00000018;
+}
+.hero-header:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.68),rgba(0,0,0,.05) 72%);
+}
+.hero-copy{
+  position:relative;
+  z-index:1;
+  width:100%;
+  padding:28px 26px 22px;
+  color:#fff;
+}
+.hero-copy h1{margin:0 0 7px;font-size:29px;text-shadow:0 1px 4px #0008}
+.hero-copy p{margin:0;opacity:.96;text-shadow:0 1px 3px #0008}
+.photo-credit{font-size:10px;opacity:.75;margin-top:7px}
+@media(max-width:700px){
+  .hero-header{min-height:190px;border-radius:12px;background-position:center center}
+  .hero-copy{padding:22px 17px 17px}
+  .hero-copy h1{font-size:21px}
+  .hero-copy p{font-size:12px;line-height:1.6}
+}
+
 </style>
 </head>
 <body>
 <div class="container">
-<header>
-<h1>富士・箱根 2泊3日｜左回り・旅程ページ v5</h1>
-<p>名古屋駅 12:00発 → 箱根泊 → 河口湖泊 → 3日目 15:00～16:00 静岡駅</p>
+<header class="hero-header">
+<div class="hero-copy">
+<h1>富士・箱根 2泊3日｜2026/11/13(金)〜11/15(日)</h1>
+<p>左回り｜名古屋 → 箱根・湯河原 → 河口湖 → 富士山西麓 → 名古屋</p>
+<div class="photo-credit">写真：Wikimedia Commons / Quercus acuta（CC0）</div>
+</div>
 </header>
 
 <section class="card">
@@ -222,46 +264,46 @@ footer{font-size:12px;color:#666;padding:12px 2px 30px}
 <h2>🕐 旅程・タイムスケジュール</h2>
 <div class="timeline-wrap">
 <div class="day timeline-day" id="day1">
-<div class="daytitle">1日目｜箱根・芦ノ湖 <span class="badge">必須</span></div>
-<div class="day-summary">名古屋 → 芦ノ湖 → 箱根スカイライン → 大観山 → 箱根泊</div>
+<div class="daytitle">1日目｜11/13(金) 箱根・芦ノ湖・湯河原 <span class="badge">必須</span></div>
+<div class="day-summary">名古屋 → 芦ノ湖 → 箱根スカイライン → 大観山 → ゆがわら風雅泊</div>
 <div class="timeline">
 <div class="timeline-row standard"><div class="time" data-base-time="720">12:00</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener">名古屋駅</a><span class="kind">出発</span><span class="actions" aria-label="名古屋駅の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=名古屋駅,愛知県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">高速道路中心</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="930">15:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=芦ノ湖" target="_blank" rel="noopener">芦ノ湖</a><span class="kind">必須</span><span class="actions" aria-label="芦ノ湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=芦ノ湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=芦ノ湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30～40分</span><span class="memo">湖畔・休憩</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="960">16:00頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根スカイライン" target="_blank" rel="noopener">箱根スカイライン／芦ノ湖スカイライン</a><span class="kind">必須</span><span class="actions" aria-label="箱根スカイライン／芦ノ湖スカイラインの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根スカイライン" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根スカイライン&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30～60分</span><span class="memo">11月中旬は日没に注意</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="1005">16:45頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=大観山展望台" target="_blank" rel="noopener">大観山展望台</a><span class="kind">必須</span><span class="actions" aria-label="大観山展望台の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=大観山展望台" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=大観山展望台&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">富士山＋芦ノ湖</span></div></div></div>
-<div class="timeline-row stay"><div class="time" data-base-time="1050">17:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener">箱根の宿</a><span class="kind">宿泊</span><span class="actions" aria-label="箱根の宿の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根,神奈川県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：宿泊</span><span class="memo">夕食・温泉</span></div></div></div>
+<div class="timeline-row stay"><div class="time" data-base-time="1050">17:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=ゆがわら風雅,神奈川県湯河原町" target="_blank" rel="noopener">ゆがわら風雅</a><span class="kind">宿泊</span><span class="actions" aria-label="ゆがわら風雅の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=ゆがわら風雅,神奈川県湯河原町宮上261" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=ゆがわら風雅,神奈川県湯河原町宮上261&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>11/13チェックイン</span><span class="memo">4名1室・11/14チェックアウト</span></div></div></div>
 </div></div>
 <div class="day timeline-day" id="day2">
-<div class="daytitle">2日目｜山中湖・五合目・河口湖</div>
-<div class="day-summary">箱根 → 山中湖 → 富士SW（任意）→ 五合目 → 河口湖 → 遊覧船 → 河口湖泊</div>
+<div class="daytitle">2日目｜11/14(土) 山中湖・五合目・河口湖</div>
+<div class="day-summary">湯河原 → 山中湖 → 富士SW（任意）→ 五合目 → 河口湖 → 遊覧船 → 河口湖アーバンリゾートヴィラ泊</div>
 <div class="timeline">
-<div class="timeline-row standard"><div class="time" data-base-time="480">08:00</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener">箱根出発</a><span class="kind">移動</span><span class="actions" aria-label="箱根出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=箱根,神奈川県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=箱根,神奈川県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">山中湖方面へ</span></div></div></div>
+<div class="timeline-row standard"><div class="time" data-base-time="480">08:00</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=ゆがわら風雅,神奈川県湯河原町宮上261" target="_blank" rel="noopener">ゆがわら風雅出発</a><span class="kind">移動</span><span class="actions" aria-label="ゆがわら風雅出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=ゆがわら風雅,神奈川県湯河原町宮上261" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=ゆがわら風雅,神奈川県湯河原町宮上261&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>08:00出発</span><span class="memo">山中湖方面へ</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="555">09:15頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=山中湖" target="_blank" rel="noopener">山中湖</a><span class="kind">必須</span><span class="actions" aria-label="山中湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=山中湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=山中湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">富士山＋湖</span></div></div></div>
 <div class="timeline-row optional"><div class="time" data-base-time="615">10:15頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富士スピードウェイ" target="_blank" rel="noopener">富士スピードウェイ</a><span class="kind">寄れたら</span><span class="actions" aria-label="富士スピードウェイの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富士スピードウェイ" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富士スピードウェイ&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.fsw.tv/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：～30分</span><span class="memo">時間調整枠。押したらカット</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="720">12:00～13:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富士スバルライン五合目" target="_blank" rel="noopener">富士スバルライン五合目</a><span class="kind">必須</span><span class="actions" aria-label="富士スバルライン五合目の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富士スバルライン五合目" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富士スバルライン五合目&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://fujiyama5.jp/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約1.5時間</span><span class="memo">11月中旬は積雪・凍結等を要確認</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="870">14:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖" target="_blank" rel="noopener">河口湖</a><span class="kind">必須</span><span class="actions" aria-label="河口湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：～1時間</span><span class="memo">昼食・湖畔・休憩</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="930">15:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖遊覧船" target="_blank" rel="noopener">河口湖遊覧船「天晴」</a><span class="kind">必須</span><span class="actions" aria-label="河口湖遊覧船「天晴」の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖遊覧船" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖遊覧船&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.fujigokokisen.jp/contents/sp/appare/price.php" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約20分</span><span class="memo">運航状況を当日確認</span></div></div></div>
-<div class="timeline-row stay"><div class="time" data-base-time="1020">17:00頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener">河口湖の宿</a><span class="kind">宿泊</span><span class="actions" aria-label="河口湖の宿の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖,山梨県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：宿泊</span><span class="memo"></span></div></div></div>
+<div class="timeline-row stay"><div class="time" data-base-time="1020">17:00頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖アーバンリゾートヴィラ,山梨県富士河口湖町大石2585-122" target="_blank" rel="noopener">河口湖アーバンリゾートヴィラ</a><span class="kind">宿泊</span><span class="actions" aria-label="河口湖アーバンリゾートヴィラの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖アーバンリゾートヴィラ,山梨県富士河口湖町大石2585-122" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖アーバンリゾートヴィラ,山梨県富士河口湖町大石2585-122&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>11/14チェックイン</span><span class="memo">4名・11/15 10:00チェックアウト</span></div></div></div>
 </div></div>
 <div class="day timeline-day" id="day3">
-<div class="daytitle">3日目｜青木ヶ原・朝霧・富士山西麓 <span class="badge">必須</span></div>
-<div class="day-summary">河口湖 → 風穴・氷穴 → 青木ヶ原 → 朝霧 → 田貫湖 → 白糸の滝 → 大淵笹場 → 静岡駅</div>
+<div class="daytitle">3日目｜11/15(日) 青木ヶ原・朝霧・富士山西麓 → 名古屋 <span class="badge">必須</span></div>
+<div class="day-summary">河口湖 → 風穴・氷穴 → 青木ヶ原 → 朝霧 → 田貫湖 → 白糸の滝 → 大淵笹場 → 名古屋</div>
 <div class="timeline">
-<div class="timeline-row standard"><div class="time" data-base-time="450">07:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener">河口湖出発</a><span class="kind">移動</span><span class="actions" aria-label="河口湖出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖,山梨県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">静岡駅15～16時を優先</span></div></div></div>
+<div class="timeline-row standard"><div class="time" data-base-time="450">07:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener">河口湖出発</a><span class="kind">移動</span><span class="actions" aria-label="河口湖出発の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=河口湖,山梨県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=河口湖,山梨県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">名古屋帰着を優先</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="480">08:00～09:30</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener">富岳風穴・鳴沢氷穴</a><span class="kind">必須</span><span class="actions" aria-label="富岳風穴・鳴沢氷穴の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=富岳風穴・鳴沢氷穴" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=富岳風穴・鳴沢氷穴&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.mtfuji-cave.com/" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：約1.5時間</span><span class="memo">洞内は階段あり</span></div></div></div>
 <div class="timeline-row standard"><div class="time" data-base-time="570">09:30～10:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=青木ヶ原樹海" target="_blank" rel="noopener">青木ヶ原樹海ドライブ</a><span class="kind">ルート</span><span class="actions" aria-label="青木ヶ原樹海ドライブの地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=青木ヶ原樹海" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=青木ヶ原樹海&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：～45分</span><span class="memo">公道から樹海を楽しむ</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="615">10:15～10:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=朝霧高原" target="_blank" rel="noopener">朝霧高原</a><span class="kind">必須</span><span class="actions" aria-label="朝霧高原の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=朝霧高原" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=朝霧高原&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">景色＋休憩</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="660">11:00～11:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=田貫湖" target="_blank" rel="noopener">田貫湖</a><span class="kind">必須</span><span class="actions" aria-label="田貫湖の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=田貫湖" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=田貫湖&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：45分</span><span class="memo">長距離歩行はしない</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="735">12:15～13:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=白糸の滝+静岡県富士宮市" target="_blank" rel="noopener">白糸の滝</a><span class="kind">必須</span><span class="actions" aria-label="白糸の滝の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=白糸の滝+静岡県富士宮市" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=白糸の滝+静岡県富士宮市&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：約1時間</span><span class="memo">滝壺方面は無理しない</span></div></div></div>
 <div class="timeline-row must"><div class="time" data-base-time="825">13:45～14:15</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=大淵笹場" target="_blank" rel="noopener">大淵笹場</a><span class="kind">必須</span><span class="actions" aria-label="大淵笹場の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=大淵笹場" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=大淵笹場&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a><a class="official-link" href="https://www.city.fuji.shizuoka.jp/1005330000/miryoku/p008190.html" target="_blank" rel="noopener" title="公式サイト">公式</a></span></div><div class="details"><span>滞在：30分</span><span class="memo">茶畑＋富士山</span></div></div></div>
-<div class="timeline-row goal"><div class="time" data-base-time="915">15:15～15:45</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=静岡駅,静岡県" target="_blank" rel="noopener">静岡駅</a><span class="kind">ゴール</span><span class="actions" aria-label="静岡駅の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=静岡駅,静岡県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=静岡駅,静岡県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">16:00までに到着</span></div></div></div>
+<div class="timeline-row goal"><div class="time" data-base-time="1110">18:30～19:30頃</div><div class="timeline-dot"></div><div class="timeline-content"><div class="spot-head"><button type="button" class="now-btn" onclick="setCurrentStop(this)" title="今ここに設定">今ここ</button><a class="spot-name" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener">名古屋（自宅）</a><span class="kind">ゴール</span><span class="actions" aria-label="名古屋の地図・ナビ"><a class="iconbtn" href="https://www.google.com/maps/search/?api=1&amp;query=名古屋駅,愛知県" target="_blank" rel="noopener" title="地図を見る" aria-label="地図を見る">📍</a><a class="iconbtn nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=名古屋駅,愛知県&amp;travelmode=driving" target="_blank" rel="noopener" title="ナビ開始" aria-label="ナビ開始">🗺</a></span></div><div class="details"><span>滞在：—</span><span class="memo">3日目は名古屋まで車で帰着</span></div></div></div>
 </div></div>
 </div></section>
-<footer>※このページは旅程ページ v5 です。所要時間・営業時間・道路状況は旅行日確定後に再確認します。</footer>
+<footer>※このページは旅程ページ v5.2 です。所要時間・営業時間・道路状況は旅行日確定後に再確認します。</footer>
 </div>
 
 <script>
-const API_KEY = "AIzaSyCzEpVu0fm7bfiqWfjebXaxznEvEp2_bQM";
+const API_KEY = "PASTE_YOUR_GOOGLE_MAPS_API_KEY_HERE";
 
 function directionsUrl(origin, destination, waypoints = []) {
   const params = new URLSearchParams({
@@ -277,10 +319,10 @@ function directionsUrl(origin, destination, waypoints = []) {
 }
 
 const routes = {
-  0: directionsUrl("名古屋駅,愛知県", "静岡駅,静岡県", ["芦ノ湖","箱根スカイライン","大観山展望台","山中湖","富士スバルライン五合目","河口湖","富岳風穴","鳴沢氷穴","白糸の滝","大淵笹場"]),
-  1: directionsUrl("名古屋駅,愛知県", "箱根,神奈川県", ["芦ノ湖","箱根スカイライン","芦ノ湖スカイライン","大観山展望台"]),
-  2: directionsUrl("箱根,神奈川県", "河口湖,山梨県", ["山中湖","富士スピードウェイ","富士スバルライン五合目"]),
-  3: directionsUrl("河口湖,山梨県", "静岡駅,静岡県", ["富岳風穴","鳴沢氷穴","青木ヶ原樹海","朝霧高原","田貫湖","白糸の滝","大淵笹場"])
+  0: directionsUrl("名古屋駅,愛知県", "名古屋駅,愛知県", ["ゆがわら風雅,神奈川県湯河原町宮上261","芦ノ湖","大観山展望台","山中湖","富士スバルライン五合目","河口湖","富岳風穴","白糸の滝","大淵笹場"]),
+  1: directionsUrl("名古屋駅,愛知県", "ゆがわら風雅,神奈川県湯河原町宮上261", ["芦ノ湖","箱根スカイライン","芦ノ湖スカイライン","大観山展望台"]),
+  2: directionsUrl("ゆがわら風雅,神奈川県湯河原町宮上261", "河口湖,山梨県", ["山中湖","富士スピードウェイ","富士スバルライン五合目"]),
+  3: directionsUrl("河口湖,山梨県", "名古屋駅,愛知県", ["富岳風穴","鳴沢氷穴","青木ヶ原樹海","朝霧高原","田貫湖","白糸の滝","大淵笹場"])
 };
 
 function showDay(day) {
